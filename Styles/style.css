@@ -1,0 +1,104 @@
+/* --- Style dla nawigacji (Desktop) --- */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 20px;
+}
+
+.logo {
+    margin: 0;
+}
+
+.nav-menu ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #333; /* Zmień kolor na pasujący do Twojej strony */
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.nav-menu a:hover {
+    color: #e69830; /* Kolor po najechaniu, np. pomarańczowy z mapy */
+}
+
+.header-subtitle {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+/* Ukrywamy hamburgera domyślnie na komputerach */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+    background-color: #333;
+}
+
+/* --- Style dla telefonu (Mobile) --- */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block; /* Pokazuje trzy kreski na telefonie */
+        z-index: 10;
+    }
+
+    /* Animacja hamburgera w krzyżyk (X) po kliknięciu */
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* Ukryte menu, które wyjedzie po kliknięciu */
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 0;
+        gap: 0;
+        flex-direction: column;
+        background-color: #fff; /* Tło wysuwanego menu */
+        width: 100%;
+        height: 100vh;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+        z-index: 9;
+        padding-top: 80px; /* Miejsce, by logo go nie zasłaniało */
+    }
+
+    /* Stan po kliknięciu – menu wjeżdża na ekran */
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .nav-menu a {
+        font-size: 20px;
+    }
+}

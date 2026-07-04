@@ -4,13 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyBike</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Styles/style.css">
 </head>
 <body>
 
     <header>
-        <h1>MyBike</h1>
-        <p>My favourite routes you can ride by a bike</p>
+        <div class="nav-container">
+            <h1 class="logo">MyBike</h1>
+            
+            <!-- Przycisk hamburgera widoczny tylko na telefonach -->
+            <button class="hamburger" aria-label="Otwórz menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <!-- Nawigacja główna -->
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Routes</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="header-subtitle">
+            <p>My favourite routes you can ride by a bike</p>
+        </div>
     </header>
 
     <div class="container">
@@ -29,5 +50,15 @@
 
     </div>
 
+    <!-- Skrypt obsługujący rozwijanie menu na telefonie -->
+    <script>
+        const hamburger = document.querySelector(".hamburger");
+        const navMenu = document.querySelector(".nav-menu");
+
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            navMenu.classList.toggle("active");
+        });
+    </script>
 </body>
 </html>
