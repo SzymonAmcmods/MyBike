@@ -1,2 +1,2 @@
 # MyBike
-A Website where i post my biketrips just formyself
+A Website where i post my bike trips just for myself
